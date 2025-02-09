@@ -6,6 +6,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
+import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
@@ -13,6 +14,7 @@ import reactor.core.scheduler.Schedulers;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+@Repository
 public class InMemoryTraceRepository implements UpdateTraceRepository, ApplicationContextAware {
     private ApplicationContext applicationContext;
     private int capacity = 100;

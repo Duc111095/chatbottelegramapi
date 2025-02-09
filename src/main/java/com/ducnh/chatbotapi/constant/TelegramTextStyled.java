@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @Getter
-@RequiredArgsConstructor
 public enum TelegramTextStyled {
     BOLD("<b>", "</b>"),
     ITALIC("<i>", "</i>"),
@@ -13,5 +12,11 @@ public enum TelegramTextStyled {
     UNDERLINE("<u>", "</u>"),
     PRE("<pre>", "</pre>"),;
     private final String openTag;
+
     private final String closeTag;
+
+    TelegramTextStyled(String openTag, String closeTag) {
+        this.openTag = openTag;
+        this.closeTag = closeTag;
+    }
 }

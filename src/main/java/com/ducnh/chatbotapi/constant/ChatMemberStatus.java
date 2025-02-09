@@ -14,10 +14,12 @@ public enum ChatMemberStatus {
     MEMBER("member"),
     LEFT("left"),
     KICKED("kicked"),;
+
     private final String value;
+
     public static ChatMemberStatus fromStatusString(String value) {
         return Arrays.stream(values())
-                .filter(v -> StringUtils.equalsIgnoreCase(v.getValue(), value))
+                .filter(v -> StringUtils.equalsIgnoreCase(v.value, value))
                 .findFirst()
                 .orElse(null);
     }
