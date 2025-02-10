@@ -21,6 +21,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
@@ -38,7 +39,7 @@ import java.time.Duration;
 
 @Slf4j
 @RequiredArgsConstructor
-@AutoConfiguration
+@Configuration
 @ConditionalOnProperty(value = "ducnh.bot.enable-bot-config", havingValue = "true", matchIfMissing = true)
 @ComponentScan
 @EnableConfigurationProperties({BotProperties.class})

@@ -53,8 +53,9 @@ public class BotRoutePostProcessor implements BeanPostProcessor, SmartInitializi
 
     private void validateCommand(String cmd) {
         if (StringUtils.isNotBlank(cmd)) {
+            log.debug("Validating command {}", cmd);
             if (StringUtils.startsWith(cmd, CommonConstant.CMD_PREFIX)) {
-                if (cmd.length() > CommonConstant.CMD_PREFIX.length()) {
+                if (cmd.length() > CommonConstant.CMD_MAX_LENGTH) {
                     throw new BotException(String.format(CommonConstant.CMD_MAX_LENGTH_ERROR, CommonConstant.CMD_MAX_LENGTH, CommonConstant.CMD_PREFIX));
                 }
                 String cmdValue = cmd.substring(CommonConstant.CMD_PREFIX.length());
@@ -86,7 +87,7 @@ public class BotRoutePostProcessor implements BeanPostProcessor, SmartInitializi
                 .withDescription(commandDescription)
                 .withBodyDescription(bodyDescription)
                 .withOnlyForOwner(mapping.onlyForOwner())
-                .withOnlyForPrivate(!mapping.onlyForPrivate())
+                .withOnlyForPrivate(mapping.onlyForPrivate())
                 .build();
     }
 

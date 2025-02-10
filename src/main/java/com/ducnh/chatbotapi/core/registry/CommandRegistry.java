@@ -14,10 +14,10 @@ public class CommandRegistry {
     private final Map<String, BotCommand> botCommandMap = new ConcurrentHashMap<>();
 
     public int getSize() {
-        return this.botCommandMap.keySet().size();
+        return this.botCommandMap.size();
     }
 
-    public Set<String> getCommandNames(){
+    public Set<String> getCommandNames() {
         return this.botCommandMap.keySet();
     }
 

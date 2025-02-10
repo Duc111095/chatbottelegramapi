@@ -19,7 +19,7 @@ import java.util.NoSuchElementException;
 @RestController
 @RequiredArgsConstructor
 @ConditionalOnProperty(value = "ducnh.bot.webhook.use-webhook", havingValue = "true")
-@RequestMapping("${ducnh.bot.webhook.base-callback-path:/callback}")
+@RequestMapping("/callback")
 public class CallbackController {
     private final ServerlessWebhook webhook;
     private final BotProperties botProperties;
