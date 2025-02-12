@@ -15,6 +15,6 @@ public class GeneralPriceInfo {
 
     @Override
     public String toString() {
-        return this.refNo + " " + this.message;
+        return this.refNo + ": " + this.message;
     }
 }

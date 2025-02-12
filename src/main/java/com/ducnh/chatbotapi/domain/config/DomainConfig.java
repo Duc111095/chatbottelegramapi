@@ -11,9 +11,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @Configuration
 public class DomainConfig {
     private final ApplicationContext applicationContext;
+
     public DomainConfig(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
     }
+
     @Bean
     MessageMapper mapper() {
         return new MessageMapper();
@@ -22,13 +24,4 @@ public class DomainConfig {
     GeneralPriceService getGeneralPriceService() {
         return new GeneralPriceServiceImpl(applicationContext.getBean(JdbcTemplate.class), applicationContext.getBean(MessageMapper.class));
     }
-
-    /*
-    @Override
-    public void run(String... args) throws Exception {
-        String unit = "TB";
-        String list_vt = "628020";
-        GeneralPriceService generalPriceService = getGeneralPriceService();
-        generalPriceService.getGeneralMessage(unit, list_vt, 0).forEach(System.out::println);
-    }*/
 }
