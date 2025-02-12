@@ -49,7 +49,7 @@ import java.time.Duration;
         TypeResolverConfig.class,
         SubscriberConfig.class,
         RepositoryConfig.class,
-        MapperConfig.class
+        MapperConfig.class,
 })
 public class BotAutoConfiguration {
     private final BotProperties botProperties;

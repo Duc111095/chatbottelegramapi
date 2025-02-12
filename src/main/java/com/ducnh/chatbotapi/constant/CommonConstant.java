@@ -26,4 +26,6 @@ public class CommonConstant {
     public static final String TEMP_PREFIX = "temp_";
     public static final String ACCESS_DENIED_MESSAGE = "403. You do not have permission to call this command";
 
+    public static final String GENERAL_INFO_TITLE = "Thông tin bảng giá chung";
+
 }
