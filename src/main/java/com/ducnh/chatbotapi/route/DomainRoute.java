@@ -55,13 +55,13 @@ public class DomainRoute {
                     });
                     return Mono.just(sb.toString());
                 }
-                else return Mono.just("Vui lòng nhập đúng định dạng");
+                else return Mono.just(CommonConstant.GENERAL_INFO_ERROR);
             }
             catch (Exception ex) {
-                return Mono.just(ex.getMessage());
+                return Mono.just(CommonConstant.GENERAL_INFO_ERROR);
             }
         } else {
-            return Mono.just("Vui lòng nhập đúng định dạng");
+            return Mono.just(CommonConstant.GENERAL_INFO_ERROR);
         }
     }
 }
