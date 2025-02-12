@@ -39,7 +39,7 @@ public class DomainRoute {
                 if (infos.length > 1) {
                     String refs = info.split(unit + " ")[1];
                     StringBuilder sb = new StringBuilder();
-                    String title = TelegramMessageUtils.wrapByTag(CommonConstant.GENERAL_INFO_TITLE, TelegramTextStyled.BOLD);
+                    String title = TelegramMessageUtils.wrapByTag(CommonConstant.GENERAL_INFO_TITLE + " " + unit.toUpperCase(), TelegramTextStyled.BOLD);
                     List<GeneralPriceInfo> infoList = generalPriceService.getGeneralMessage(unit, refs, 0);
                     AtomicInteger atomicInteger = new AtomicInteger(1);
                     List<String> body = infoList.stream()
