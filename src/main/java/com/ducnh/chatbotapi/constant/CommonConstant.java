@@ -25,7 +25,7 @@ public class CommonConstant {
     public static final int MAX_MESSAGE_CONTENT_LENGTH = 4096;
     public static final String TEMP_PREFIX = "temp_";
     public static final String ACCESS_DENIED_MESSAGE = "403. You do not have permission to call this command";
-    public static final String GENERAL_INFO_ERROR = "Vui long nhap dung dinh dang: /bgc [Ma BP] [DS vat tu]";
+    public static final String GENERAL_INFO_ERROR = "Vui long nhap dung dinh dang: /bgc [Ma BP] [0/1] [DS vat tu]";
     public static final String GENERAL_INFO_TITLE = "Thông tin bảng giá chung";
 
 }

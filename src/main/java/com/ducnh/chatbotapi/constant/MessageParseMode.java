@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.telegram.telegrambots.meta.api.methods.ParseMode;
 
-@RequiredArgsConstructor
-@Getter
 public enum MessageParseMode {
     MARKDOWN(ParseMode.MARKDOWN),
     MARKDOWNV2(ParseMode.MARKDOWNV2),
@@ -13,4 +11,11 @@ public enum MessageParseMode {
     PLAIN("PLAIN"),
     ;
     private final String value;
+    MessageParseMode(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
+    }
 }

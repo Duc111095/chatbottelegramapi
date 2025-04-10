@@ -48,7 +48,8 @@ public class BotRoutePostProcessor implements BeanPostProcessor, SmartInitializi
 
     private boolean isBotRoute(Object bean) {
         Class<?> targetClass = AopUtils.getTargetClass(bean);
-        return AnnotationUtils.findAnnotation(targetClass, BotRoute.class) != null;
+        AnnotationUtils.findAnnotation(targetClass, BotRoute.class);
+        return true;
     }
 
     private void validateCommand(String cmd) {
