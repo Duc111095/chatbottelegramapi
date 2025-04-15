@@ -19,6 +19,7 @@ import reactor.core.publisher.Mono;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 
 @BotRoute
@@ -31,7 +32,7 @@ public class DomainRoute {
     public Mono<String> getGeneralPriceInfo(Update update, @CommandBody(description = "Thông tin cần lấy dữ liệu") String commandBody) {
         MessageParser messageParser = new MessageParser(update.getMessage().getText());
         String info = messageParser.getRemainingText();
-        if (info != null && !info.isBlank()) {
+        if (info != null && !info.isEmpty()) {
             try {
                 String[] infos = info.split(" ");
                 String units = infos[0];
@@ -52,7 +53,7 @@ public class DomainRoute {
                                         .map(GeneralPriceInfo::toString)
                                         .sorted()
                                         .map(s -> atomicInteger.getAndIncrement() + ". " + s)
-                                        .toList();
+                                        .collect(Collectors.toList());
                                 sb.append(title);
                                 sb.append(System.lineSeparator());
                                 body.forEach(e -> {

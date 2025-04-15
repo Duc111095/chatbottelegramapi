@@ -23,5 +23,21 @@ public class AdviceRegistry {
         return adviceMap.get(clazz);
     }
 
-    public record Advice(Object bean, Method method) {}
+    public static class Advice {
+        private final Object bean;
+        private final Method method;
+
+        public Advice(Object bean, Method method) {
+            this.bean = bean;
+            this.method = method;
+        }
+
+        public Object getBean() {
+            return bean;
+        }
+
+        public Method getMethod() {
+            return method;
+        }
+    }
 }

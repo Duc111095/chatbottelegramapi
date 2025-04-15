@@ -179,12 +179,12 @@ public final class BotDispatcher {
                                 if (StringUtils.isNotBlank(e.getBodyDescription())) {
                                     description.append(" [").append(e.getBodyDescription()).append("]");
                                 }
-                                if (description.isEmpty()) {
+                                if (description.length() == 0) {
                                     description.append(e.getCmd().replace(CommonConstant.CMD_PREFIX, ""));
                                 }
                                 return new org.telegram.telegrambots.meta.api.objects.commands.BotCommand(e.getCmd(), description.toString());
                             })
-                            .toList();
+                            .collect(Collectors.toList());
             setMyCommands = new SetMyCommands(commandList, new BotCommandScopeDefault(), null);
         } else {
             setMyCommands = new SetMyCommands(Collections.singletonList(CommonConstant.HELP_BOT_COMMAND), new BotCommandScopeDefault(), null);

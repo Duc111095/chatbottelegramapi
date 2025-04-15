@@ -65,7 +65,7 @@ public class DefaultRoute {
                 .map(botCommand -> described(botCommand, isMessageInGroup))
                 .sorted()
                 .map(described -> index.getAndIncrement() + ". " + described)
-                .toList();
+                .collect(Collectors.toList());
         return Flux.merge(Flux.just(title), Flux.fromIterable(result))
                 .collect(Collectors.joining(System.lineSeparator()));
     }

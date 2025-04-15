@@ -127,7 +127,8 @@ public class UpdateSubscriber implements ApplicationContextAware {
     }
 
     private void handleConsumerError(Throwable t, BotCommandParams botCommandParams) {
-        if (t instanceof InvocationTargetException itex) {
+        if (t instanceof InvocationTargetException) {
+            InvocationTargetException itex = (InvocationTargetException) t;
             executeCommandAdvice(itex.getTargetException(), botCommandParams);
         }
         else {
@@ -190,8 +191,8 @@ public class UpdateSubscriber implements ApplicationContextAware {
     private void executeCommandAdvice(Throwable t, BotCommandParams params) {
         AdviceRegistry adviceRegistry = applicationContext.getBean(AdviceRegistry.class);
         if (adviceRegistry.hasAdvice(t.getClass())) {
-            Method handleMethod = adviceRegistry.getAdvice(t.getClass()).method();
-            Object adviceBean = adviceRegistry.getAdvice(t.getClass()).bean();
+            Method handleMethod = adviceRegistry.getAdvice(t.getClass()).getMethod();
+            Object adviceBean = adviceRegistry.getAdvice(t.getClass()).getBean();
             Parameter[] parameters = handleMethod.getParameters();
             Object[] args = new Object[parameters.length];
             for (int idx = 0; idx < parameters.length; idx++) {
